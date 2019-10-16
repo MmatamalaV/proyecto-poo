@@ -1,0 +1,3 @@
+admin,admin,a@mail.com
+mario,123,c@mail.com
+wacho,loco,1233
