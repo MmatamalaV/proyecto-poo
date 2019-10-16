@@ -178,8 +178,6 @@ public class frmToAdmin extends javax.swing.JInternalFrame {
             }catch(NumberFormatException ex){
             }
             if (ctl.login(secret, v1.getText())) {
-                Principal.jButton5.setVisible(false);
-                Principal.jButton6.setVisible(false);
                 Principal.jToolBar3.setVisible(true);
                 Principal.usuario.setText(Principal.usuario.getText()+" ★");
                 this.dispose();

@@ -165,8 +165,6 @@ public class Login extends javax.swing.JInternalFrame {
                 Principal.usuario.setText("bienvenido: "+ctl.getNombreUsuario());
                 Principal.jButton1.setEnabled(false);        
                 Principal.jButton2.setEnabled(true);        
-                Principal.jButton5.setVisible(true);   
-                Principal.jButton6.setVisible(true);   
                 VistaAdministrador vista=new VistaAdministrador();
                 Principal.jDesktopPane1.add(vista);
                 try{vista.setMaximum(true);}catch(Exception e){}

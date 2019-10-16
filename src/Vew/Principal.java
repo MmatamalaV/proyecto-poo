@@ -46,10 +46,7 @@ public class Principal extends javax.swing.JFrame {
         this.setExtendedState(6);
         ControlUsuario cu= new ControlUsuario();
 //        listUser=cu.mostrar();
-        jToolBar3.setVisible(false);
-        jButton5.setVisible(false);
-        jButton6.setVisible(false);
-        
+        jToolBar3.setVisible(false);        
     }
 
     /**
@@ -73,10 +70,6 @@ public class Principal extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JToolBar.Separator();
         jButton2 = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JToolBar.Separator();
-        jButton6 = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JToolBar.Separator();
-        jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         jToolBar2 = new javax.swing.JToolBar();
         usuario = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
@@ -147,37 +140,6 @@ public class Principal extends javax.swing.JFrame {
         jToolBar1.add(jButton2);
         jToolBar1.add(jSeparator5);
 
-        jButton6.setText("Galerias ");
-        jButton6.setFocusable(false);
-        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(jButton6);
-        jToolBar1.add(jSeparator1);
-
-        jButton5.setText("Iniciar Administrador");
-        jButton5.setFocusable(false);
-        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(jButton5);
-
-        jButton7.setText("jButton7");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(jButton7);
-
         getContentPane().add(jToolBar1, java.awt.BorderLayout.PAGE_START);
 
         jToolBar2.setFloatable(false);
@@ -216,8 +178,6 @@ public class Principal extends javax.swing.JFrame {
         jButton2.setEnabled(false);        
         jToolBar3.setVisible(false);
         jButton1.setEnabled(true);  
-        jButton5.setVisible(false);
-        jButton6.setVisible(false);
         usuario.setText(""); 
         //sugerido por piñerin
         JInternalFrame[] frames= jDesktopPane1.getAllFrames();
@@ -263,37 +223,6 @@ public class Principal extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        frmToAdmin frm=new frmToAdmin();
-        if (verificar(frm)) {
-            centrar(frm);
-            jDesktopPane1.add(frm); 
-        }else{
-            frm.dispose();
-        }        
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-       frmGalerias frm=new frmGalerias();
-        if (verificar(frm)) {
-            centrar(frm);
-            jDesktopPane1.add(frm); 
-         }else{
-            frm.dispose();
-        }   
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        frmPaises frm=new frmPaises();
-        if (verificar(frm)) {
-            centrar(frm);
-            jDesktopPane1.add(frm); 
-         }else{
-            frm.dispose();
-        }   
-       
-    }//GEN-LAST:event_jButton7ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -332,15 +261,11 @@ public class Principal extends javax.swing.JFrame {
     public static javax.swing.JButton jButton2;
     public static javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    public static javax.swing.JButton jButton5;
-    public static javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     public static javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
