@@ -9,12 +9,12 @@ package Vew;
  *
  * @author mario
  */
-public class VistaAdministrador extends javax.swing.JInternalFrame {
+public class PrestamoDevolucion extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form VistaAdministrador
+     * Creates new form PrestamoDevolucion
      */
-    public VistaAdministrador() {
+    public PrestamoDevolucion() {
         initComponents();
     }
 
@@ -26,6 +26,9 @@ public class VistaAdministrador extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        setClosable(true);
+        setTitle("Prestamo y devolución");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
