@@ -3,19 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/src/controller/ControlUsuario.java</file>
-            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/src/Model/Autores.java</file>
-            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/src/Model/Paises.java</file>
-            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/src/Model/Usuario.java</file>
-            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/src/Vew/frmPaises.java</file>
-            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/src/Model/Nacionalidades.java</file>
-            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/src/controller/ControlConexion.java</file>
-            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/src/Vew/Login.java</file>
-            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/src/Model/Galerias.java</file>
-            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/src/Vew/Principal.java</file>
-            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/src/Vew/VistaAdministrador.java</file>
-            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/src/Vew/frmAdmin.java</file>
-            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/src/elmuseo/ElMuseo.java</file>
+            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/proyecto%20poo/src/controller/ControlUsuario.java</file>
+            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/proyecto%20poo/src/Vew/frmToAdmin.java</file>
+            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/proyecto%20poo/src/controller/ControlConexion.java</file>
+            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/proyecto%20poo/src/controller/ControlAdmin.java</file>
+            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/proyecto%20poo/src/Vew/Login.java</file>
+            <file>file:/C:/Users/mario/Documents/NetBeansProjects/ElMusel%20PRUEBAS/proyecto%20poo/src/Vew/Principal.java</file>
         </group>
     </open-files>
 </project-private>

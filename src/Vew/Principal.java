@@ -44,9 +44,7 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
 //        maximizar
         this.setExtendedState(6);
-        ControlUsuario cu= new ControlUsuario();
-//        listUser=cu.mostrar();
-        jToolBar3.setVisible(false);        
+        ControlUsuario cu= new ControlUsuario();        
     }
 
     /**
@@ -58,13 +56,6 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jToolBar3 = new javax.swing.JToolBar();
-        jLabel1 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JToolBar.Separator();
-        jButton4 = new javax.swing.JButton();
-        jSeparator4 = new javax.swing.JToolBar.Separator();
-        jButton3 = new javax.swing.JButton();
-        jSeparator3 = new javax.swing.JToolBar.Separator();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
@@ -78,40 +69,6 @@ public class Principal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jToolBar3.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jToolBar3.setRollover(true);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setText("Administrar");
-        jToolBar3.add(jLabel1);
-        jToolBar3.add(jSeparator6);
-
-        jButton4.setText("Usuarios");
-        jButton4.setFocusable(false);
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jToolBar3.add(jButton4);
-        jToolBar3.add(jSeparator4);
-
-        jButton3.setText("Galerias");
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jToolBar3.add(jButton3);
-        jToolBar3.add(jSeparator3);
-
-        getContentPane().add(jToolBar3, java.awt.BorderLayout.LINE_END);
 
         jToolBar1.setRollover(true);
 
@@ -154,7 +111,7 @@ public class Principal extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 502, Short.MAX_VALUE)
+            .addGap(0, 571, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,8 +132,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        jButton2.setEnabled(false);        
-        jToolBar3.setVisible(false);
+        jButton2.setEnabled(false); 
         jButton1.setEnabled(true);  
         usuario.setText(""); 
         //sugerido por piñerin
@@ -201,27 +157,6 @@ public class Principal extends javax.swing.JFrame {
             frm.dispose();
         }        
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        frmGaleriasAdmin frm=new frmGaleriasAdmin();
-        if (verificar(frm)) {
-            centrar(frm);
-            jDesktopPane1.add(frm); 
-         }else{
-            frm.dispose();
-        }       
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        frmAdmin frm=new frmAdmin();
-        if (verificar(frm)) {
-            centrar(frm);
-            jDesktopPane1.add(frm); 
-        }else{
-            frm.dispose();
-        } 
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,21 +194,14 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton jButton1;
     public static javax.swing.JButton jButton2;
-    public static javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     public static javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JToolBar.Separator jSeparator2;
-    private javax.swing.JToolBar.Separator jSeparator3;
-    private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
-    private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
-    public static javax.swing.JToolBar jToolBar3;
     public static javax.swing.JLabel usuario;
     // End of variables declaration//GEN-END:variables
 }
