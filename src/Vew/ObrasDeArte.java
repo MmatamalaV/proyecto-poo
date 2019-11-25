@@ -47,6 +47,10 @@ public class ObrasDeArte extends javax.swing.JInternalFrame {
                 String a= to.getAut_nom();
                  combo.addElement(a);
             }
+            if(to.getAut_nom()==null){
+                String a= to.getAut_pseu();
+                 combo.addElement(a);
+            }
             else{
                 String a= to.getAut_nom()+"( "+to.getAut_pseu()+" )";
                 combo.addElement(a);
