@@ -38,6 +38,11 @@ public class Autores extends Nacionalidades{
         this.aut_fdef = aut_fdef;
     }
 
+    public Autores(String aut_nom, String aut_pseu) {
+        this.aut_nom = aut_nom;
+        this.aut_pseu = aut_pseu;
+    }
+    
     public int getAut_cod() {
         return aut_cod;
     }
@@ -77,6 +82,5 @@ public class Autores extends Nacionalidades{
     public void setAut_fdef(Date aut_fdef) {
         this.aut_fdef = aut_fdef;
     }
-    
     
 }
