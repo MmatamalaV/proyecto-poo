@@ -19,15 +19,15 @@ import java.util.List;
  */
 public class controlAutores {
     ControlConexion con=new ControlConexion();
+    
     public List listar(){
         List<Autores> lista = new ArrayList<>();
         try {
             con.conectar();
-            PreparedStatement sql= con.estado().prepareStatement("SELECT * FROM autores");
+            PreparedStatement sql= con.estado().prepareStatement("SELECT aut_cod,aut_nom,aut_pseu FROM autores");
             ResultSet res=sql.executeQuery();
-            while (res.next()) {           
-                System.out.println(res.getInt("aut_cod")+" "+res.getString("aut_nom")+" "+ res.getString("aut_pseu")+" "+ res.getDate("aut_fnac")+" "+ res.getDate("aut_fdef"));
-                lista.add(new Autores(res.getInt("aut_cod"), res.getString("aut_nom"), res.getString("aut_pseu"), res.getDate("aut_fnac"), res.getDate("aut_fdef")));
+            while (res.next()) {
+                lista.add(new Autores(res.getInt("aut_cod"),res.getString("aut_nom"), res.getString("aut_pseu")));
             }
         } catch (SQLException e) {
             System.out.println("error: "+e);

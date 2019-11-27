@@ -7,6 +7,7 @@ package Vew;
 
 import Model.Autores;
 import Model.TipoObra;
+import controller.ControlObrasArte;
 import controller.controlAutores;
 import controller.controlTipoObra;
 import java.util.List;
@@ -42,19 +43,9 @@ public class ObrasDeArte extends javax.swing.JInternalFrame {
         DefaultComboBoxModel combo= new DefaultComboBoxModel();
         controlAutores cto=new controlAutores();
         List<Autores> lista =cto.listar();
-        for (Autores to : lista) {
-            if(to.getAut_pseu()==null){
-                String a= to.getAut_nom();
-                 combo.addElement(a);
-            }
-            if(to.getAut_nom()==null){
-                String a= to.getAut_pseu();
-                 combo.addElement(a);
-            }
-            else{
-                String a= to.getAut_nom()+"( "+to.getAut_pseu()+" )";
-                combo.addElement(a);
-            }
+        for (Autores aut : lista) {
+            aut=new Autores(aut.getAut_cod(), aut.getAut_nom(), aut.getAut_pseu());
+            combo.addElement(aut);
         }
         autor.setModel(combo);
     }
@@ -86,6 +77,7 @@ public class ObrasDeArte extends javax.swing.JInternalFrame {
         descripcion = new javax.swing.JTextField();
         autor = new javax.swing.JComboBox<>();
         tipoObra = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
 
         jToolBar1.setRollover(true);
 
@@ -130,7 +122,7 @@ public class ObrasDeArte extends javax.swing.JInternalFrame {
         jLabel6.setText("Tipo de Obra:");
 
         try {
-            Fecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            Fecha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -139,25 +131,37 @@ public class ObrasDeArte extends javax.swing.JInternalFrame {
 
         tipoObra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jButton2.setText("Grabar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Nombre)
-                    .addComponent(Fecha)
-                    .addComponent(descripcion)
-                    .addComponent(autor, 0, 209, Short.MAX_VALUE)
-                    .addComponent(tipoObra, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Nombre)
+                            .addComponent(Fecha)
+                            .addComponent(descripcion)
+                            .addComponent(autor, 0, 209, Short.MAX_VALUE)
+                            .addComponent(tipoObra, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jButton2)))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -183,7 +187,9 @@ public class ObrasDeArte extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(tipoObra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gestión de Obras", jPanel1);
@@ -193,6 +199,13 @@ public class ObrasDeArte extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        ControlObrasArte coa=new ControlObrasArte();
+        Autores autores=(Autores)autor.getSelectedItem();
+        TipoObra tipoobras=(TipoObra)tipoObra.getSelectedItem();
+        coa.insertar(Nombre.getText(), Fecha.getText(), descripcion.getText(), autores.getAut_cod(), tipoobras.getTip_cod());
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField Fecha;
@@ -200,6 +213,7 @@ public class ObrasDeArte extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> autor;
     private javax.swing.JTextField descripcion;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
