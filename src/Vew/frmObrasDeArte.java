@@ -17,12 +17,12 @@ import javax.swing.DefaultComboBoxModel;
  *
  * @author mario
  */
-public class ObrasDeArte extends javax.swing.JInternalFrame {
+public class frmObrasDeArte extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ObrasDeArte
      */
-    public ObrasDeArte() {
+    public frmObrasDeArte() {
         initComponents();
         llenarTipoObra();
         llenarAutores();
@@ -143,9 +143,9 @@ public class ObrasDeArte extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5)
@@ -159,9 +159,7 @@ public class ObrasDeArte extends javax.swing.JInternalFrame {
                             .addComponent(descripcion)
                             .addComponent(autor, 0, 209, Short.MAX_VALUE)
                             .addComponent(tipoObra, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jButton2)))
+                    .addComponent(jButton2))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(

@@ -55,7 +55,7 @@ public class CatalogoMantencion extends javax.swing.JInternalFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
 //        LLAMAR A OBRAS DE ARTES
-    ObrasDeArte frm=new ObrasDeArte();
+    frmObrasDeArte frm=new frmObrasDeArte();
         Principal.jDesktopPane1.add(frm);
         Principal.centrar(frm);
     }//GEN-LAST:event_jLabel1MouseClicked

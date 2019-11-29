@@ -21,6 +21,11 @@ public class TipoObra {
         this.tip_nom = tip_nom;
     }
 
+    public TipoObra(String tip_nom) {
+        this.tip_nom = tip_nom;
+    }
+
+    
     public int getTip_cod() {
         return tip_cod;
     }
