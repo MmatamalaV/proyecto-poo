@@ -75,6 +75,7 @@ public class frmGalerias extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane2.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane2, java.awt.BorderLayout.CENTER);

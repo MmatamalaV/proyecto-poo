@@ -23,6 +23,14 @@ public class ObrasDeArte extends Autores1{
         this.oa_nom = oa_nom;
     }
 
+    public ObrasDeArte(int oa_cod, String oa_nom, Date oa_fecha, String oa_desc, String aut_nom, String tip_nom) {
+        super(aut_nom, tip_nom);
+        this.oa_cod = oa_cod;
+        this.oa_nom = oa_nom;
+        this.oa_fecha = oa_fecha;
+        this.oa_desc = oa_desc;
+    }
+
     public ObrasDeArte() {
     }
 

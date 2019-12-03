@@ -30,11 +30,13 @@ public class CatalogoMantencion extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 0, 0));
         setClosable(true);
         setTitle("Catalogo y mantencion");
-        getContentPane().setLayout(new java.awt.GridLayout());
+        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         jLabel1.setFont(new java.awt.Font("Palatino Linotype", 1, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("OBRAS DE ARTE");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -46,6 +48,7 @@ public class CatalogoMantencion extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel1);
 
         jLabel2.setFont(new java.awt.Font("Palatino Linotype", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("jLabel1");
         getContentPane().add(jLabel2);

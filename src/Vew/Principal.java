@@ -2,16 +2,19 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ *Iconos diseñados por https://www.flaticon.es/autores/chanut Chanut from  https://www.flaticon.es 
  */
 package Vew;
 
 import Model.Administrador;
 import Model.Usuario;
 import controller.ControlUsuario;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.beans.PropertyVetoException;
 import java.util.ArrayList;
 import javax.swing.DesktopManager;
+import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 
 /**
@@ -42,9 +45,11 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        jDesktopPane1.setBackground(Color.BLACK);
+        jMenuBar1.setBackground(Color.BLACK);
 //        maximizar
         this.setExtendedState(6);
-        ControlUsuario cu= new ControlUsuario();        
+        ControlUsuario cu= new ControlUsuario();      
     }
 
     /**
@@ -70,9 +75,15 @@ public class Principal extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(0, 0));
 
+        jToolBar1.setBackground(new java.awt.Color(0, 0, 0));
+        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Palatino Linotype", 0, 11)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Iniciar sesión");
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -85,6 +96,9 @@ public class Principal extends javax.swing.JFrame {
         jToolBar1.add(jButton1);
         jToolBar1.add(jSeparator2);
 
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setFont(new java.awt.Font("Palatino Linotype", 0, 11)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Cerrar sesión");
         jButton2.setEnabled(false);
         jButton2.setFocusable(false);
@@ -100,10 +114,13 @@ public class Principal extends javax.swing.JFrame {
 
         getContentPane().add(jToolBar1, java.awt.BorderLayout.PAGE_START);
 
+        jToolBar2.setBackground(new java.awt.Color(0, 0, 0));
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
-        usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/User-green-icon.png"))); // NOI18N
+        usuario.setBackground(new java.awt.Color(0, 0, 0));
+        usuario.setForeground(new java.awt.Color(255, 255, 255));
+        usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user.png"))); // NOI18N
         jToolBar2.add(usuario);
 
         getContentPane().add(jToolBar2, java.awt.BorderLayout.PAGE_END);
@@ -116,11 +133,15 @@ public class Principal extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 219, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         getContentPane().add(jDesktopPane1, java.awt.BorderLayout.CENTER);
 
+        jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
+
+        jMenu1.setBackground(new java.awt.Color(0, 0, 0));
+        jMenu1.setForeground(new java.awt.Color(255, 255, 255));
         jMenu1.setText("CATALOGO Y MANTENCION");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -129,6 +150,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setBackground(new java.awt.Color(0, 0, 0));
+        jMenu2.setForeground(new java.awt.Color(255, 255, 255));
         jMenu2.setText("ACCESO A LA PLATAFORMA");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -137,6 +160,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setBackground(new java.awt.Color(0, 0, 0));
+        jMenu3.setForeground(new java.awt.Color(255, 255, 255));
         jMenu3.setText("PRESTAMO Y DEVOLUCIÓN");
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -172,6 +197,7 @@ public class Principal extends javax.swing.JFrame {
             centrar(frm);
             jDesktopPane1.add(frm); 
             jButton1.setEnabled(false);
+            
         }else{
             frm.dispose();
         }        

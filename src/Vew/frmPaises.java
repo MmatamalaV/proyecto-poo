@@ -16,18 +16,10 @@ import javax.swing.table.DefaultTableModel;
  * @author mario
  */
 public class frmPaises extends javax.swing.JInternalFrame {
+    ControlPaises cp=new ControlPaises();
     private int fila=-1;
     int codigo;
     private int sw=0;
-    ControlPaises cp=new ControlPaises();
-    /**
-     * Creates new form frmPaises
-     */
-    public frmPaises() {
-        initComponents();
-        llenarTabla("");
-    }
-    DefaultTableModel tabla=new DefaultTableModel();
     
     public void llenarTabla(String nombre){
         tabla.setColumnCount(0);
@@ -42,6 +34,16 @@ public class frmPaises extends javax.swing.JInternalFrame {
         }
         jTable1.setModel(tabla);
     }
+    /**
+     * Creates new form frmPaises
+     */
+    public frmPaises() {
+        initComponents();
+        llenarTabla("");
+    }
+    DefaultTableModel tabla=new DefaultTableModel();
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,6 +87,7 @@ public class frmPaises extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);

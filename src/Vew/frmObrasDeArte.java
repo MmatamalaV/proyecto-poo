@@ -6,12 +6,15 @@
 package Vew;
 
 import Model.Autores;
+import Model.ObrasDeArte;
 import Model.TipoObra;
 import controller.ControlObrasArte;
 import controller.controlAutores;
 import controller.controlTipoObra;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,10 +25,36 @@ public class frmObrasDeArte extends javax.swing.JInternalFrame {
     /**
      * Creates new form ObrasDeArte
      */
+    ControlObrasArte coa=new ControlObrasArte() ;
+    private int fila=-1;
+    int codigo;
+    private int sw=0;
+    private ObrasDeArte asd;
+    DefaultTableModel tabla=new DefaultTableModel();
+    
+    public void llenarTabla(String nombre){
+        tabla.setColumnCount(0);
+        tabla.addColumn("codigo");
+        tabla.addColumn("obra de arte");
+        tabla.addColumn("autor");
+        tabla.addColumn("tipo de obra");
+        List<ObrasDeArte> lista=coa.listar(nombre);
+        tabla.setNumRows(lista.size());
+        jLabel1.setText("cantidad de registros: "+lista.size());
+        for (int i = 0; i < lista.size(); i++) {
+            tabla.setValueAt(lista.get(i).getOa_cod(), i, 0);
+            tabla.setValueAt(lista.get(i).getOa_nom(), i, 1);
+            tabla.setValueAt(lista.get(i).getAut_nom(), i, 2);
+            tabla.setValueAt(lista.get(i).getTip_nom(), i, 3);
+        }
+        jTable1.setModel(tabla);
+    }
+    
     public frmObrasDeArte() {
         initComponents();
         llenarTipoObra();
         llenarAutores();
+        llenarTabla("");
     }
 
     private void llenarTipoObra(){
@@ -61,6 +90,12 @@ public class frmObrasDeArte extends javax.swing.JInternalFrame {
 
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
+        jButton3 = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JToolBar.Separator();
+        jButton4 = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JToolBar.Separator();
+        jTextField1 = new javax.swing.JTextField();
         jToolBar2 = new javax.swing.JToolBar();
         jLabel1 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -78,14 +113,52 @@ public class frmObrasDeArte extends javax.swing.JInternalFrame {
         autor = new javax.swing.JComboBox<>();
         tipoObra = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         jToolBar1.setRollover(true);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Agregar");
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jButton1);
+        jToolBar1.add(jSeparator1);
+
+        jButton3.setText("Editar");
+        jButton3.setFocusable(false);
+        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton3);
+        jToolBar1.add(jSeparator2);
+
+        jButton4.setText("Eliminar");
+        jButton4.setFocusable(false);
+        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton4);
+        jToolBar1.add(jSeparator3);
+
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
+        jToolBar1.add(jTextField1);
 
         getContentPane().add(jToolBar1, java.awt.BorderLayout.PAGE_START);
 
@@ -107,6 +180,12 @@ public class frmObrasDeArte extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jTabbedPane1.addTab("Obras de arte", jScrollPane1);
@@ -138,14 +217,21 @@ public class frmObrasDeArte extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton5.setText("Cancelar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5)
@@ -159,8 +245,12 @@ public class frmObrasDeArte extends javax.swing.JInternalFrame {
                             .addComponent(descripcion)
                             .addComponent(autor, 0, 209, Short.MAX_VALUE)
                             .addComponent(tipoObra, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jButton2))
-                .addContainerGap(55, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jButton5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                        .addComponent(jButton2)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +276,9 @@ public class frmObrasDeArte extends javax.swing.JInternalFrame {
                     .addComponent(jLabel6)
                     .addComponent(tipoObra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton5))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -198,11 +290,126 @@ public class frmObrasDeArte extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ControlObrasArte coa=new ControlObrasArte();
         Autores autores=(Autores)autor.getSelectedItem();
         TipoObra tipoobras=(TipoObra)tipoObra.getSelectedItem();
-        coa.insertar(Nombre.getText(), Fecha.getText(), descripcion.getText(), autores.getAut_cod(), tipoobras.getTip_cod());
+        
+        if (Nombre.getText().equals("") || Fecha.getText().equalsIgnoreCase("") || descripcion.getText().equalsIgnoreCase("")) {
+             JOptionPane.showMessageDialog(this, "Debe ingresar datos","el museo",JOptionPane.OK_OPTION+JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            switch(sw){
+                case 0:
+                    coa.insertar(Nombre.getText(), Fecha.getText(), descripcion.getText(), autores.getAut_cod(), tipoobras.getTip_cod());
+                    break;
+                case 1:
+                    coa.update(asd.getOa_cod(), Nombre.getText(), Fecha.getText(), descripcion.getText(), autores.getAut_cod(), tipoobras.getTip_cod());
+                    break;
+            }
+            jTabbedPane1.setSelectedIndex(0);                    
+            JOptionPane.showMessageDialog(this, "Operacion realizada","el museo",JOptionPane.OK_OPTION+JOptionPane.INFORMATION_MESSAGE);
+            sw=0;
+            llenarTabla("");
+            vaciar();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void vaciar(){
+        Nombre.setText("");
+        Fecha.setText("");
+        descripcion.setText("");
+        autor.setSelectedIndex(0);
+        tipoObra.setSelectedIndex(0);
+    }
+    
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        llenarTabla(jTextField1.getText());
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       jTabbedPane1.setSelectedIndex(1);
+        sw=0;
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if (fila>-1) {
+            codigo= Integer.parseInt(String.valueOf(jTable1.getValueAt(fila, 0)));
+            List<ObrasDeArte> oa=coa.getDato(codigo);
+            for (ObrasDeArte ontas : oa) {
+                String a="";
+                char x='-';
+                Nombre.setText(ontas.getOa_nom());
+                String str=ontas.getOa_fecha().toString();
+                for (int n = 0; n <str.length(); n ++) { 
+                    if (str.charAt(n)!=x) {
+                      a+= str.charAt(n);
+                    } 
+                }
+                Fecha.setText(a);
+                descripcion.setText(ontas.getOa_desc());
+                a="";
+                x = '[';
+                String b="";
+                int num = autor.getItemCount();
+                for (int i = 0; i < num; i++) {
+                    a="";
+                    b="";
+                    Object item = autor.getItemAt(i);
+                       str=item.toString();
+                    for (int n = 0; n <str.length(); n ++) { 
+                        if (str.charAt(n)!=x) {
+                          a+= str.charAt(n);
+                        } 
+                        char[] ch=a.toCharArray();  
+                        if (str.charAt(n)==x) {
+                            for (int z= 0; z < ch.length-1;z++) {
+                                b+=ch[z];
+                            }
+                        }
+                        if(b.equalsIgnoreCase(ontas.getAut_nom())){
+                            autor.setSelectedIndex(i);
+                        }
+                    }
+                }
+                num = tipoObra.getItemCount();
+                for (int i = 0; i < num; i++) {
+                    Object item = tipoObra.getItemAt(i);
+                    if(item.toString().equalsIgnoreCase(ontas.getTip_nom())){
+                        tipoObra.setSelectedIndex(i);
+                    }
+                }
+                asd=ontas;
+            } 
+            sw=1;
+            jTabbedPane1.setSelectedIndex(1);
+            fila=-1;
+        }
+        else{
+           JOptionPane.showMessageDialog(this, "debe seleccionar una fila","advertencia",JOptionPane.OK_OPTION+JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if (fila>-1) {
+            int res=JOptionPane.showConfirmDialog(this, "¿desea eliminar el pais: "+String.valueOf(jTable1.getValueAt(fila, 1))+"?","advertencia",JOptionPane.YES_NO_OPTION);
+            if(res==0){
+                coa.delete(Integer.parseInt(String.valueOf(jTable1.getValueAt(fila, 0))));
+                llenarTabla("");
+                JOptionPane.showMessageDialog(this, "pais eliminado","el museo",JOptionPane.OK_OPTION+JOptionPane.INFORMATION_MESSAGE);
+                fila=-1;
+           }
+        }else{
+           JOptionPane.showMessageDialog(this, "debe seleccionar una fila","advertencia",JOptionPane.OK_OPTION+JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        fila=jTable1.rowAtPoint(evt.getPoint());
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        vaciar();
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -212,6 +419,9 @@ public class frmObrasDeArte extends javax.swing.JInternalFrame {
     private javax.swing.JTextField descripcion;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -220,8 +430,12 @@ public class frmObrasDeArte extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator2;
+    private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JComboBox<String> tipoObra;

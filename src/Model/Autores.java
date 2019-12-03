@@ -88,6 +88,6 @@ public class Autores extends Nacionalidades{
     @Override
     public String toString(){
         if(aut_pseu==null)return aut_nom;
-        return aut_nom+" '"+aut_pseu+"'";
+        return aut_nom+" ["+aut_pseu+"]";
     }
 }
